@@ -1,0 +1,32 @@
+.username {
+  width: 36%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.username,
+.username__avatar {
+  background-color: var(--username-bg);
+}
+
+.username__avatar {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: -2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--text-secondary);
+}
+
+.username__text {
+  padding: 0 10px 0 65px;
+  color: var(--text-primary);
+  font-weight: 600;
+  overflow: hidden;
+}
