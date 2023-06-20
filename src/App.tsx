@@ -1,26 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { CommentModel } from './models';
-import { Comment } from './components/comment/Comment';
 import { Form } from './components/form/Form';
+import { CommentList } from './components/comment-list/CommentList';
 
 export const App: React.FC = () => {
-  const [comments, setData] = useState<CommentModel[]>([]);
+  const [comments, setComments] = useState<CommentModel[]>([]);
 
   useEffect(() => {
     fetch('https://dummyjson.com/comments')
       .then((response) => response.json())
-      .then(({ comments }: { comments: CommentModel[] }) => setData(comments))
+      .then(({ comments }: { comments: CommentModel[] }) => setComments(comments))
       .catch((error) => console.error(error));
   }, []);
 
-  const commentNodes = comments?.map((commentItem: CommentModel) => (
-    <Comment key={commentItem.id} comment={commentItem} />
-  ));
+  const addComment = (text: string) => {
+    const ids = comments.reduce((acc: number[], prev: CommentModel) => {
+      acc.push(prev.id);
+      return acc;
+    }, [] as number[]);
+    const newId = Math.max(...ids) + 1;
+    const commentModel: CommentModel = {
+      body: text,
+      id: newId,
+      postId: newId,
+      user: {
+        id: Math.random() * 10,
+        username: 'Me Myself',
+      },
+    };
+    setComments([...comments, commentModel]);
+  };
+
+  const deleteComment = (commentIdToDelete: number) => {
+    const commentToDelete = comments.find(({ id }) => id === commentIdToDelete);
+    if (commentToDelete) {
+      const commentsToUpdate = [...comments];
+      commentsToUpdate.splice(commentsToUpdate.indexOf(commentToDelete), 1);
+      setComments(commentsToUpdate);
+    }
+  };
 
   return (
     <main className="container">
-      <div>{commentNodes}</div>
-      <Form />
+      <CommentList comments={comments} onDeleteComment={deleteComment} />
+      <Form onSubmitClick={addComment} />
     </main>
   );
 };
