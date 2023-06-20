@@ -16,5 +16,5 @@ export const App: React.FC = () => {
     <Comment key={commentItem.id} comment={commentItem} />
   ));
 
-  return <div>{commentNodes}</div>;
+  return <div className="container">{commentNodes}</div>;
 };

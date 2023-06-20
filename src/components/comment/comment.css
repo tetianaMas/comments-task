@@ -1,0 +1,18 @@
+.comment {
+  position: relative;
+  padding: 40px;
+  margin-bottom: 70px;
+  min-height: 80px;
+  background-color: var(--comment-bg);
+  box-shadow: var(--shadow);
+}
+
+.comment__class-name {
+  position: absolute;
+  left: -16px;
+  top: -25px;
+}
+
+.comment__body {
+  font-weight: 600;
+}
