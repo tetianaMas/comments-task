@@ -16,3 +16,9 @@
 .comment__body {
   font-weight: 600;
 }
+
+.comment__delete-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
