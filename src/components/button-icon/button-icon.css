@@ -1,0 +1,22 @@
+.button-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  background-color: var(--username-bg);
+  border-radius: 50%;
+  border: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.button-icon:hover {
+  color: var(--text-secondary);
+  background-color: var(--form-main);
+}
+
+.button-icon:disabled {
+  cursor: not-allowed;
+}
