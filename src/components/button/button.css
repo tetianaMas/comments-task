@@ -1,0 +1,20 @@
+.button {
+  min-width: 100px;
+  min-height: 40px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  background-color: var(--form-main);
+  border: 2px solid var(--form-main);
+  box-shadow: 10px 5px 5px var(--shadow-secondary);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button:hover {
+  color: var(--text-primary);
+  background-color: var(--username-bg);
+}

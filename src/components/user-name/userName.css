@@ -3,7 +3,7 @@
   height: 50px;
   display: flex;
   align-items: center;
-  box-shadow: var(--shadow);
+  box-shadow: 1px 1px 1px var(--shadow-primary);
 }
 
 .username,

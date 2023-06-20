@@ -4,7 +4,7 @@
   margin-bottom: 70px;
   min-height: 80px;
   background-color: var(--comment-bg);
-  box-shadow: var(--shadow);
+  box-shadow: 1px 1px 1px var(--shadow-primary);
 }
 
 .comment__class-name {
