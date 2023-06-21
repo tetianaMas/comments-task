@@ -14,8 +14,8 @@ export const App: React.FC = () => {
   }, []);
 
   const addComment = (text: string) => {
-    const ids = comments.reduce((acc: number[], prev: CommentModel) => {
-      acc.push(prev.id);
+    const ids = comments.reduce((acc: number[], next: CommentModel) => {
+      acc.push(next.id);
       return acc;
     }, [] as number[]);
     const newId = Math.max(...ids) + 1;
